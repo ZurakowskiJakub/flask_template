@@ -1,0 +1,11 @@
+# Gitignore made by Jakub Zurakowski
+
+# VS CODE
+.vscode/
+
+# Virtual Env
+venv/
+
+# Scripts
+*.bat
+*.sh
