@@ -4,8 +4,14 @@ from dotenv import load_dotenv
 
 
 class Config(object):
+    "General Configuration - Takes variables from .env"
 
     def __init__(self):
+        """Constructor. Performs checks on .env variables
+
+        :raises ValueError: If any of the .env variables are not set
+        """
+
         load_dotenv()
 
         expected_env_vars = {
