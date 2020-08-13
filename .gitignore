@@ -9,3 +9,6 @@ venv/
 # Scripts
 *.bat
 *.sh
+
+# Python cache
+__pycache__/
