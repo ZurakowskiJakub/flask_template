@@ -5,6 +5,7 @@ from src.routes.app import app_module
 
 app = Flask(__name__)
 
+app.config.from_object('src.config.config.Config')
 app.register_blueprint(api_module)
 app.register_blueprint(app_module)
 
