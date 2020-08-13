@@ -24,7 +24,7 @@ class Mongo():
         self._client = client
         self._db = db
 
-    def getCollection(self, collection_name: str):
+    def get_collection(self, collection_name: str):
         """Returns a requested collection
 
         :param collection_name: name of the requested collection
@@ -35,7 +35,7 @@ class Mongo():
 
         return self._db.get_collection(collection_name)
 
-    def createCollection(self, collection_name: str):
+    def create_collection(self, collection_name: str):
         """Created and returns the requested collection
 
         :param collection_name: name of the collection to be created
