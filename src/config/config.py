@@ -18,7 +18,8 @@ class Config(object):
             'FLASK_DEBUG',
             'FLASK_TESTING',
             'FLASK_SECRET_KEY',
-            'FLASK_ENV'
+            'FLASK_ENV',
+            'MONGO_URI'
         }
 
         for expected in expected_env_vars:
@@ -29,3 +30,4 @@ class Config(object):
         self.DEBUG = True if os.getenv("FLASK_DEBUG") == 'True' else False
         self.TESTING = True if os.getenv("FLASK_TESTING") == 'True' else False
         self.SECRET_KEY = os.getenv("FLASK_SECRET_KEY")
+        self.MONGO_URI = os.getenv("MONGO_URI")
