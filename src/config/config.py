@@ -19,7 +19,8 @@ class Config(object):
             'FLASK_TESTING',
             'FLASK_SECRET_KEY',
             'FLASK_ENV',
-            'MONGO_URI'
+            'MONGO_URI',
+            'LOGGING_LEVEL'
         }
 
         for expected in expected_env_vars:
@@ -31,3 +32,11 @@ class Config(object):
         self.TESTING = True if os.getenv("FLASK_TESTING") == 'True' else False
         self.SECRET_KEY = os.getenv("FLASK_SECRET_KEY")
         self.MONGO_URI = os.getenv("MONGO_URI")
+
+        # Read logging level - defaults to INFO (20)
+        logging_vals = [0, 10, 20, 30, 40, 50]
+        LOGGING_LEVEL = int(os.getenv("LOGGING_LEVEL"))
+        if LOGGING_LEVEL in logging_vals:
+            self.LOGGING_LEVEL = LOGGING_LEVEL
+        else:
+            self.LOGGING_LEVEL = 20

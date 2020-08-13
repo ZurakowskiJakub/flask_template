@@ -1,6 +1,11 @@
+import logging
+
 import pymongo
 
 from src.config.config import Config
+from src.util.util import get_logger
+
+logger = get_logger(__name__)
 
 
 class Mongo():
@@ -19,7 +24,9 @@ class Mongo():
         config = Config()
 
         client = pymongo.MongoClient(config.MONGO_URI)
+        logger.info(f"Connected to MongoDB with {config.MONGO_URI}")
         db = client.get_database(db_name)
+        logger.info(f"Connected to database {db_name}")
 
         self._client = client
         self._db = db
@@ -33,7 +40,11 @@ class Mongo():
         :rtype: pymongo.Collection
         """
 
-        return self._db.get_collection(collection_name)
+        collection = self._db.get_collection(collection_name)
+        logger.debug(
+            f"Fetched {collection.name} from database {self._db.name}")
+
+        return collection
 
     def create_collection(self, collection_name: str):
         """Created and returns the requested collection
@@ -44,4 +55,8 @@ class Mongo():
         :rtype: pymongo.Collection
         """
 
-        return self._db.create_collection(collection_name)
+        collection = self._db.create_collection(collection_name)
+        logger.debug(
+            f"Fetched {collection.name} from database {self._db.name}")
+
+        return collection
