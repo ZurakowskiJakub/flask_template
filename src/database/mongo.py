@@ -47,7 +47,9 @@ class Mongo():
         return collection
 
     def create_collection(self, collection_name: str):
-        """Created and returns the requested collection
+        """DEPRECATED
+
+        Created and returns the requested collection
 
         :param collection_name: name of the collection to be created
         :type collection_name: str
@@ -57,6 +59,6 @@ class Mongo():
 
         collection = self._db.create_collection(collection_name)
         logger.debug(
-            f"Fetched {collection.name} from database {self._db.name}")
+            f"Created {collection.name} collection in database {self._db.name}")
 
         return collection

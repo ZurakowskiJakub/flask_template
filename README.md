@@ -8,8 +8,8 @@ Supports the following:
 4. MongoDB
 
 ## Installation
-1. Create a python virtual environment `python -m venv .`
-2. Install required packages / modules `pip install requirements.txt`
+1. Create a python virtual environment `python -m venv venv`
+2. Install required packages / modules `pip install -r requirements.txt`
 3. Add a `.env` file
    1. This file should have the below (check `src.config.config`) for the full list in case I forgot to update the README
 
@@ -26,5 +26,33 @@ MONGO_URI = mongodb+srv://{user_name}:{password}@main.tydga.mongodb.net/{databas
 LOGGING_LEVEL = 0 | 10 | 20 | 30 | 40 | 50
 ```
 
+## Running the application
+1. Open a new terminal / cmd window (in root folder of this project)
+2. Type in `python app.py`
+
+### Running / Debugging in VS-Code
+Use this as your `launch.json`:
+```json
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Flask",
+      "type": "python",
+      "request": "launch",
+      "module": "flask",
+      "env": {
+        "FLASK_APP": "app.py"
+      },
+      "args": ["run"],
+      "jinja": true
+    }
+  ]
+}
+```
+
 ## License
-Please see License.md
+Copyright &copy; Jakub Zurakowski 2020 - Please see License.md

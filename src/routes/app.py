@@ -21,7 +21,7 @@ def after_every_request(response):
 
 @app_module.route('/')
 def app_index():
-    return "Hello World!"
+    return jsonify({"Hello": "World"})
 
 
 @app_module.route('/getDatabases')

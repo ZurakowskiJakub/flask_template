@@ -20,7 +20,4 @@ app.register_blueprint(app_module)
 
 if __name__ == "__main__":
     logger.debug("App starting with debug=True")
-    app.run(debug=True)
-else:
-    logger.info("App starting")
     app.run()
