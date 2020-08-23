@@ -20,4 +20,4 @@ app.register_blueprint(app_module)
 
 if __name__ == "__main__":
     logger.debug("App starting with debug=True")
-    app.run()
+    app.run(host='127.0.0.1', port=8080)
