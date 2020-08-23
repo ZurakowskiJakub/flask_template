@@ -14,12 +14,14 @@ def get_logger(name: str):
     :rtype: Logger
     """
 
-    if config.ENV.lower() == 'local':
-        # If local, do not write to file
-        logging.basicConfig(level=config.LOGGING_LEVEL)
-    else:
-        # If not local, write to file
-        logging.basicConfig(filename='main.log', level=config.LOGGING_LEVEL)
+    # if config.ENV.lower() == 'local':
+    #     # If local, do not write to file
+    #     logging.basicConfig(level=config.LOGGING_LEVEL)
+    # else:
+    #     # If not local, write to file
+    #     logging.basicConfig(filename='main.log', level=config.LOGGING_LEVEL)
+
+    logging.basicConfig(level=config.LOGGING_LEVEL)
 
     logger = logging.getLogger(name)
 
